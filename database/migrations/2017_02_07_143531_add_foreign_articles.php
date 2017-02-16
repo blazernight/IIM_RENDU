@@ -15,6 +15,7 @@ class AddForeignArticles extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
+            $table->string('picture')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddForeignArticles extends Migration
     {
         Schema::table('articles', function (Blueprint $table) {
             $table->dropForeign('articles_user_id_foreign');
+            $table->dropColumn('picture');
         });
     }
 }

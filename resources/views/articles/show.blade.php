@@ -16,6 +16,7 @@
 
                         <h1>{{$article->title}}</h1>
                         <p>{{$article->content}}</p>
+                            <img src="{{ asset('uploads/article_pictures/' . $article->picture) }}" alt="">
                         <p>
                             @if($article->user)
                                 Utilisateur: {{$article->user->name}}

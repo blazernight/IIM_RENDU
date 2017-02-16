@@ -8,10 +8,11 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        <form method="POST" action="{{route('article.store')}}">
+                        <form method="POST" action="{{route('article.store')}}" enctype="multipart/form-data">
                             {{csrf_field()}}
-                            <input required type="text" name="title">
-                            <textarea name="content" id="" cols="30" rows="10"></textarea>
+                            <input required type="text" name="title"><br>
+                            <textarea name="content" id="" cols="30" rows="10"></textarea><br>
+                            <input type="file" name="picture" class="form-control"><br>
                             <input type="submit" value="Envoyer">
 
                         @include('messages.errors')

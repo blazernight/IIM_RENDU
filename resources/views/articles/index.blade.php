@@ -17,6 +17,7 @@
                         @forelse($articles as $article)
                             <h1>{{ $article->title }}</h1>
                             <p>{{ $article->content }}</p>
+                                <img src="{{ asset('uploads/article_pictures/' . $article->picture) }}" alt="">
                             <a href="{{route('article.show', ['id' => $article->id])}}">
                                 Voir mon article
                             </a>

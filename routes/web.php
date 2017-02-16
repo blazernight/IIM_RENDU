@@ -24,8 +24,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/user', 'UserController@index');
-
-
 //EXO1
 
 /*Route::get('/iim', function() {

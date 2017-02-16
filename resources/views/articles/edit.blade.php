@@ -8,13 +8,14 @@
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
-                        <form method="POST" action="{{route('article.update', [$article->id])}}">
+                        <form method="POST" action="{{route('article.update', [$article->id])}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <input type="hidden" name="_method" value="PUT">
-                            <input required type="text" value="{{$article->title}}" name="title">
+                            <input required type="text" value="{{$article->title}}" name="title"><br>
                             <textarea name="content" id="" cols="30" rows="10">
                                 {{$article->content}}
-                            </textarea>
+                            </textarea><br>
+                            <input type="file" name="picture" class="form-control"><br>
                             <input type="submit" value="Envoyer">
                         </form>
 

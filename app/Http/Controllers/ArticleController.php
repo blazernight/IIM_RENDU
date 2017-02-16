@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+use Intervention\Image\Facades\Image;
+
 
 class ArticleController extends Controller
 {
@@ -38,23 +43,33 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,
+            [
+                'title' => 'required',
+                'content' => 'required',
+                'picture' => 'required',
+            ],
+            [
+                'title.required' => 'Vous devez donner un titre',
+                'content.required' => 'Votre article ne doit pas être vide',
+                'picture.required' => 'Votre article doit contenir une image',
+            ]);
 
 
-        $this->validate($request, [
-            'title' => 'required',
-            'content' => 'required'
-        ],
-        [
-           'content.required' => 'Content obligatoire'
-        ]);
+        $articlePicture = $request->file('picture');
+        $extension = Input::file('picture')->getClientOriginalExtension();
+        $filename = rand(1111111, 9999999) . '.' . $extension;
+        Image::make($articlePicture)->resize(600, 300)->save(public_path('/uploads/article_pictures/' . $filename));
 
-        Article::create([
-           'user_id' => Auth::user()->id,
-            'title' => $request->title,
-            'content' => $request->content
-        ]);
 
-        return redirect()->route('article.index');
+        $article = new Article;
+        $input = $request->input();
+        $input['user_id'] = Auth::user()->id;
+        $input['picture'] = $filename;
+
+        $article->fill($input)->save();
+
+        return redirect('article')->with('success', 'Votre article a bien été enregistré');
 
     }
 
@@ -110,6 +125,7 @@ class ArticleController extends Controller
         ]);
 
         $article = Article::find($id);
+
 
         $article->title = $request->title;
         $article->content = $request->content;
