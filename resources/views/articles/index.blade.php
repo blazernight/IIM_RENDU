@@ -18,8 +18,6 @@
                             <h1>{{ $article->title }}</h1>
                             <p>{{ $article->content }}</p>
 
-
-
                             @if(!$article->picture)
                                 <img src="http://placehold.it/50x50"><br>
                             @else
@@ -27,6 +25,20 @@
                             @endif
 
                             @include('components.share', ['url' => route('article.show', ['id' => $article->id])])
+
+
+
+                                @foreach ($article->likes as $user)
+                                    {{ $user->name }} likes this !
+                                @endforeach
+
+
+                                @if ($article->isLiked)
+                                    <a href="{{ route('article.like', $article->id) }}">Unlike</a>
+                                @else
+                                    <a href="{{ route('article.like', $article->id) }}">Like this!</a>
+                                @endif
+
 
                             <a href="{{route('article.show', ['id' => $article->id])}}">
                                 Voir mon article

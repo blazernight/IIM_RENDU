@@ -24,6 +24,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/user', 'UserController@index');
+
+Route::get('article/like/{id}', ['as' => 'article.like', 'uses' => 'LikeController@likeArticle']);
 //EXO1
 
 /*Route::get('/iim', function() {
