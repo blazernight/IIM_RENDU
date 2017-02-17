@@ -16,14 +16,20 @@
 
                         <h1>{{$article->title}}</h1>
                         <p>{{$article->content}}</p>
-                            <img src="{{ asset('uploads/article_pictures/' . $article->picture) }}" alt="">
+                            @if(!$article->picture)
+                                <img src="http://placehold.it/50x50">
+                            @else
+                                <img src="{{ asset('uploads/article_pictures/' . $article->picture) }}" alt="">
+                            @endif
                         <p>
                             @if($article->user)
                                 Utilisateur: {{$article->user->name}}
                             @else
                                 Pas d'utilisateur
                             @endif
+
                         </p>
+                        @include('components.share', ['url' => route('article.show', ['id' => $article->id])])
                         <a href="{{route('article.index')}}">Retour</a>
                     </div>
                 </div>

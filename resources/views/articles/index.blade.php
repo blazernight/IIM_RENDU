@@ -17,10 +17,21 @@
                         @forelse($articles as $article)
                             <h1>{{ $article->title }}</h1>
                             <p>{{ $article->content }}</p>
-                                <img src="{{ asset('uploads/article_pictures/' . $article->picture) }}" alt="">
+
+
+
+                            @if(!$article->picture)
+                                <img src="http://placehold.it/50x50"><br>
+                            @else
+                                <img src="{{ asset('uploads/article_pictures/' . $article->picture) }}" alt=""><br>
+                            @endif
+
+                            @include('components.share', ['url' => route('article.show', ['id' => $article->id])])
+
                             <a href="{{route('article.show', ['id' => $article->id])}}">
                                 Voir mon article
                             </a>
+
                         @empty
                             Rien du tout
                         @endforelse
