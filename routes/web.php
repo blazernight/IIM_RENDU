@@ -26,6 +26,10 @@ Route::get('/home', 'HomeController@index');
 Route::get('/user', 'UserController@index');
 
 Route::get('article/like/{id}', ['as' => 'article.like', 'uses' => 'LikeController@likeArticle']);
+
+//routes pour les commentaires
+Route::get('contact', 'ContactController@contact');
+Route::post('contact', ['as'=>'contact.store','uses'=>'ContactController@contactPost']);
 //EXO1
 
 /*Route::get('/iim', function() {
