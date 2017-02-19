@@ -16,6 +16,7 @@ class ComposerStaticInit082f13fda39d9c5cccf6c91568ea7415
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -94,6 +95,7 @@ class ComposerStaticInit082f13fda39d9c5cccf6c91568ea7415
         'C' => 
         array (
             'Cron\\' => 5,
+            'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -241,6 +243,10 @@ class ComposerStaticInit082f13fda39d9c5cccf6c91568ea7415
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -294,6 +300,8 @@ class ComposerStaticInit082f13fda39d9c5cccf6c91568ea7415
         'AddForeignArticles' => __DIR__ . '/../..' . '/database/migrations/2017_02_07_143531_add_foreign_articles.php',
         'ArticlesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ArticlesTableSeeder.php',
         'CreateArticlesTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_07_142817_create_articles_table.php',
+        'CreateCommentsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_19_120237_create_comments_table.php',
+        'CreateContactsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_17_171829_create_contacts_table.php',
         'CreateLikeablesTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_17_162129_create_likeables_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',

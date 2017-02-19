@@ -9,6 +9,8 @@ return array(
     'AddForeignArticles' => $baseDir . '/database/migrations/2017_02_07_143531_add_foreign_articles.php',
     'ArticlesTableSeeder' => $baseDir . '/database/seeds/ArticlesTableSeeder.php',
     'CreateArticlesTable' => $baseDir . '/database/migrations/2017_02_07_142817_create_articles_table.php',
+    'CreateCommentsTable' => $baseDir . '/database/migrations/2017_02_19_120237_create_comments_table.php',
+    'CreateContactsTable' => $baseDir . '/database/migrations/2017_02_17_171829_create_contacts_table.php',
     'CreateLikeablesTable' => $baseDir . '/database/migrations/2017_02_17_162129_create_likeables_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
