@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 
 <div class="container">
     <h1>Formulaire de contact</h1>
@@ -43,5 +39,4 @@
 
 </div>
 
-</body>
-</html>
+@endsection

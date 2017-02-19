@@ -13,6 +13,11 @@ use Intervention\Image\Facades\Image;
 
 class ArticleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => 'index']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -126,10 +131,16 @@ class ArticleController extends Controller
 
         $article = Article::find($id);
 
+        $articlePicture = $request->file('picture');
+        $extension = Input::file('picture')->getClientOriginalExtension();
+        $filename = rand(1111111, 9999999) . '.' . $extension;
+        Image::make($articlePicture)->resize(600, 300)->save(public_path('/uploads/article_pictures/' . $filename));
 
-        $article->title = $request->title;
-        $article->content = $request->content;
-        $article->save();
+        $input = $request->input();
+        $input['user_id'] = Auth::user()->id;
+        $input['picture'] = $filename;
+
+        $article->fill($input)->save();
 
         return redirect()->route('article.show', [$article->id])->with('success', 'Article modifié');
 

@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function likeArticle($id)
     {
         // here you can check if product exists or is valid or whatever

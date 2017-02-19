@@ -5,7 +5,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+                    <div style="text-align: center;"><h1>Dashboard :</h1></div>
+                    <div class="panel-heading"> <a style="margin-left: 300px;" href="{{route('article.create')}}">Ajouter un article</a></div>
 
                     <div class="panel-body">
 
@@ -16,7 +17,7 @@
                         @endif
                         @forelse($articles as $article)
                             <h1>{{ $article->title }}</h1>
-                            <p>{{ $article->content }}</p>
+                            <p>{{ $article->content }}</p><br>
 
                             @if(!$article->picture)
                                 <img src="http://placehold.it/50x50"><br>
@@ -24,7 +25,7 @@
                                 <img src="{{ asset('uploads/article_pictures/' . $article->picture) }}" alt=""><br>
                             @endif
 
-                            @include('components.share', ['url' => route('article.show', ['id' => $article->id])])
+                            @include('components.share', ['url' => route('article.show', ['id' => $article->id])])<br>
 
 
 
@@ -34,9 +35,9 @@
 
 
                                 @if ($article->isLiked)
-                                    <a href="{{ route('article.like', $article->id) }}">Unlike</a>
+                                    <a href="{{ route('article.like', $article->id) }}">Unlike</a><br>
                                 @else
-                                    <a href="{{ route('article.like', $article->id) }}">Like this!</a>
+                                    <a href="{{ route('article.like', $article->id) }}">Like this!</a><br>
                                 @endif
 
 
